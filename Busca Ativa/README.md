@@ -27,12 +27,12 @@ O solicitante coleta as respostas e decide o **resultado pela maioria** (ou "sem
 ### 🖥️ Passos Rápidos – VM Linux (Nós Respondentes)
 
 - **Gerar a Fernet Key**
-```
-python3 - <<'PY'
-import node_responder
-print("Tem app?", hasattr(node_responder, "app"))
-PY
-```
+    ```
+    python3 - <<'PY'
+    import node_responder
+    print("Tem app?", hasattr(node_responder, "app"))
+    PY
+    ```
 
 - **Exportar a Fernet Key (igual em todos os terminais)**
   ```bash
@@ -40,11 +40,11 @@ PY
 
 - **Rodar múltiplos nós (cada um em um terminal separado)**
 
-```
-uvicorn node_responder:app --host 0.0.0.0 --port 8001
-uvicorn node_responder:app --host 0.0.0.0 --port 8002
-uvicorn node_responder:app --host 0.0.0.0 --port 8003
-```
+    ```
+    uvicorn node_responder:app --host 0.0.0.0 --port 8001
+    uvicorn node_responder:app --host 0.0.0.0 --port 8002
+    uvicorn node_responder:app --host 0.0.0.0 --port 8003
+    ```
 
 ### 🖥️ Passos Rápidos – Windows (Solicitante via PowerShell)
 
@@ -60,26 +60,26 @@ uvicorn node_responder:app --host 0.0.0.0 --port 8003
 
 - **Nos respondentes (VM):**
 
-```
-=== Nova pergunta recebida ===
-Q1: Qual é o número atômico do Oxigênio?
-1) 6
-2) 7
-3) 8
-4) 9
-5) 10
-Sua resposta (1-5):
-```
+    ```
+    === Nova pergunta recebida ===
+    Q1: Qual é o número atômico do Oxigênio?
+    1) 6
+    2) 7
+    3) 8
+    4) 9
+    5) 10
+    Sua resposta (1-5):
+    ```
 
 - **No solicitante (Windows):**
 
-```
---- Respostas recebidas ---
-http://192.168.0.10:8001: 3
-http://192.168.0.10:8002: 2
-http://192.168.0.10:8003: 1
+    ```
+    --- Respostas recebidas ---
+    http://192.168.0.10:8001: 3
+    http://192.168.0.10:8002: 2
+    http://192.168.0.10:8003: 1
 
---- Resultado ---
-Sem consenso (empate).
-Distribuição: {3: 1, 2: 1, 1: 1}
-```
+    --- Resultado ---
+    Sem consenso (empate).
+    Distribuição: {3: 1, 2: 1, 1: 1}
+    ```
