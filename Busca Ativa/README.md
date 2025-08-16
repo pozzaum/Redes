@@ -26,21 +26,35 @@ O solicitante coleta as respostas e decide o **resultado pela maioria** (ou "sem
 
 ### 🖥️ Passos Rápidos – VM Linux (Nós Respondentes)
 
+- **Gerar a Fernet Key**
+```
+python3 - <<'PY'
+import node_responder
+print("Tem app?", hasattr(node_responder, "app"))
+PY
+```
+
 - **Exportar a Fernet Key (igual em todos os terminais)**
-- export FERNET_KEY="SUA_CHAVE_AQUI"
+  ```bash
+  export FERNET_KEY="SUA_CHAVE_AQUI"
 
 - **Rodar múltiplos nós (cada um em um terminal separado)**
-- uvicorn node_responder:app --host 0.0.0.0 --port 8001
-- uvicorn node_responder:app --host 0.0.0.0 --port 8002
-- uvicorn node_responder:app --host 0.0.0.0 --port 8003
+
+```
+uvicorn node_responder:app --host 0.0.0.0 --port 8001
+uvicorn node_responder:app --host 0.0.0.0 --port 8002
+uvicorn node_responder:app --host 0.0.0.0 --port 8003
+```
 
 ### 🖥️ Passos Rápidos – Windows (Solicitante via PowerShell)
 
 - **Exportar a mesma Fernet Key usada na VM**
-- $env:FERNET_KEY="SUA_CHAVE_AQUI"
+    ```bash
+    $env:FERNET_KEY="SUA_CHAVE_AQUI"
 
 - **Rodar o solicitante apontando para o IP da VM**
-- python asker.py http://192.168.x.x:8001 http://192.168.x.x:8002 http://192.168.x.x:8003
+    ```bash
+    python asker.py http://192.168.x.x:8001 http://192.168.x.x:8002 http://192.168.x.x:8003
 
 ## ✅ Exemplo de Execução
 
