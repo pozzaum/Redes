@@ -29,8 +29,8 @@ O solicitante coleta as respostas e decide o **resultado pela maioria** (ou "sem
 - **Gerar a Fernet Key**
     ```
     python3 - <<'PY'
-    import node_responder
-    print("Tem app?", hasattr(node_responder, "app"))
+    from cryptography.fernet import Fernet
+    print(Fernet.generate_key().decode())
     PY
     ```
 
